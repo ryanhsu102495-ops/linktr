@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Ryan 的個人連結頁">
+<title>徐駿恩 Ryan | Links</title>
+<style>
+:root{
+  --bg1:#0b0b1e; --bg2:#14103a; --text:#f2f0ff; --muted:#a9a4d6;
+  --card:rgba(255,255,255,.07); --card-b:rgba(255,255,255,.16);
+  --a:#7c5cff; --b:#22e3b0; --c:#ff5cc8; --particle:180,170,255;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:light){
+  :root:not([data-theme="dark"]){
+    --bg1:#eafaf3; --bg2:#ece6fb; --text:#20203a; --muted:#5d5a85;
+    --card:rgba(255,255,255,.6); --card-b:rgba(255,255,255,.9); --particle:110,90,200;
+  }
+}
+:root[data-theme="light"]{
+  --bg1:#eafaf3; --bg2:#ece6fb; --text:#20203a; --muted:#5d5a85;
+  --card:rgba(255,255,255,.6); --card-b:rgba(255,255,255,.9); --particle:110,90,200;
+}
+:root[data-theme="dark"]{
+  --bg1:#0b0b1e; --bg2:#14103a; --text:#f2f0ff; --muted:#a9a4d6;
+  --card:rgba(255,255,255,.07); --card-b:rgba(255,255,255,.16); --particle:180,170,255;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  min-height:100vh; min-height:100dvh; -webkit-tap-highlight-color:transparent; display:flex; justify-content:center; padding:56px 16px 40px;
+  font-family:"Noto Sans TC","Microsoft JhengHei",system-ui,Arial,sans-serif;
+  background:var(--bg1); color:var(--text); overflow-x:hidden; position:relative;
+}
+/* 流動極光背景 */
+.aurora{position:fixed;inset:0;z-index:0;overflow:hidden;background:linear-gradient(160deg,var(--bg1),var(--bg2))}
+.aurora i{position:absolute;width:55vmax;height:55vmax;border-radius:50%;filter:blur(80px);opacity:.45;animation:float 18s ease-in-out infinite}
+.aurora i:nth-child(1){background:var(--a);top:-20%;left:-15%}
+.aurora i:nth-child(2){background:var(--b);bottom:-25%;right:-15%;animation-delay:-6s;opacity:.32}
+.aurora i:nth-child(3){background:var(--c);top:30%;left:35%;animation-delay:-12s;opacity:.25}
+@keyframes float{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(8vw,6vh) scale(1.15)}66%{transform:translate(-6vw,10vh) scale(.9)}}
+#net{position:fixed;inset:0;z-index:1;pointer-events:none}
+.glow{position:fixed;width:360px;height:360px;border-radius:50%;pointer-events:none;z-index:1;
+  background:radial-gradient(circle,rgba(124,92,255,.28),transparent 65%);transform:translate(-50%,-50%);left:50%;top:30%;transition:opacity .3s}
+
+.container{position:relative;z-index:2;width:100%;max-width:480px;text-align:center}
+.card{
+  padding:36px 24px 28px; border-radius:28px; background:var(--card);
+  border:1px solid var(--card-b); backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px);
+  box-shadow:0 20px 60px rgba(0,0,0,.25); animation:rise .9s cubic-bezier(.2,.8,.2,1) both;
+}
+@keyframes rise{from{opacity:0;transform:translateY(40px) scale(.96)}to{opacity:1;transform:none}}
+
+/* 旋轉霓虹頭像框 */
+.avatar-wrap{position:relative;width:120px;height:120px;margin:0 auto;animation:bob 5s ease-in-out infinite}
+.avatar-wrap::before{content:"";position:absolute;inset:-6px;border-radius:50%;
+  background:conic-gradient(from 0deg,var(--a),var(--b),var(--c),var(--a));animation:spin 4s linear infinite;filter:blur(.5px)}
+.avatar-wrap::after{content:"";position:absolute;inset:-6px;border-radius:50%;
+  background:inherit;box-shadow:0 0 28px 4px rgba(124,92,255,.55);z-index:-1;animation:pulse 2.4s ease-in-out infinite}
+.avatar,.avatar-fb{position:absolute;inset:0;border-radius:50%;border:4px solid var(--bg1);object-fit:cover;z-index:1}
+.avatar-fb{display:none;align-items:center;justify-content:center;font-size:3rem;font-weight:800;
+  background:linear-gradient(135deg,var(--a),var(--c));color:#fff}
+svg.avatar{width:100%;height:100%;overflow:hidden;background:#7c5cff}
+.m1{animation:mA 3.6s infinite}.m2{animation:mB 3.6s infinite}
+@keyframes mA{0%,49%{opacity:1}50%,100%{opacity:0}}
+@keyframes mB{0%,49%{opacity:0}50%,100%{opacity:1}}
+.eyes{transform-box:fill-box;transform-origin:center;animation:blink2 4s infinite}
+@keyframes blink2{0%,92%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes bob{50%{transform:translateY(-8px)}}
+@keyframes pulse{50%{opacity:.35}}
+
+h1{margin-top:22px;font-size:2rem;font-weight:800;letter-spacing:.04em;
+  background:linear-gradient(90deg,var(--a),var(--b),var(--c),var(--a));background-size:300% 100%;
+  -webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 6s linear infinite}
+@keyframes shine{to{background-position:300% 0}}
+.bio{margin-top:12px;margin-bottom:30px;color:var(--text);font-weight:700;line-height:1.55;min-height:3.2em;font-size:1.2rem;text-shadow:0 0 16px rgba(124,92,255,.75),0 0 4px rgba(124,92,255,.35);padding:0 6px}
+.bio .cur{display:inline-block;width:2px;height:1.1em;background:var(--b);margin-left:3px;vertical-align:-2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+
+.links{list-style:none;display:flex;flex-direction:column;gap:14px;perspective:800px}
+.links li{opacity:0;animation:rise .7s cubic-bezier(.2,.8,.2,1) forwards}
+.links li:nth-child(1){animation-delay:.35s}.links li:nth-child(2){animation-delay:.5s}
+.links li:nth-child(3){animation-delay:.65s}.links li:nth-child(4){animation-delay:.8s}
+.links a{
+  position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;gap:12px;
+  padding:16px 20px;border-radius:999px;text-decoration:none;font-weight:700;color:var(--text);
+  background:var(--card);border:1px solid var(--card-b);
+  transition:transform .15s ease-out,box-shadow .3s,border-color .3s;transform-style:preserve-3d;will-change:transform;
+}
+.links a::before{content:"";position:absolute;inset:0;border-radius:inherit;opacity:0;transition:opacity .3s;
+  background:radial-gradient(180px circle at var(--mx,50%) var(--my,50%),rgba(124,92,255,.55),transparent 70%)}
+.links a:hover{border-color:var(--a);box-shadow:0 0 24px rgba(124,92,255,.45),0 10px 30px rgba(0,0,0,.25)}
+.links a:hover::before{opacity:1}
+.links a svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;position:relative;transition:transform .3s}
+.links a:hover svg{transform:scale(1.25) rotate(-8deg)}
+.links a span{position:relative}
+.rip{position:absolute;border-radius:50%;background:rgba(255,255,255,.45);transform:scale(0);animation:ripple .6s ease-out forwards;pointer-events:none}
+@keyframes ripple{to{transform:scale(1);opacity:0}}
+
+/* 去掉卡片，內容直接浮在粒子背景上 */
+.card{background:none;border:0;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none;padding:0}
+.links li:nth-child(5){animation-delay:.95s}
+.ln{--bk:linear-gradient(135deg,#06c755,#2ee07a);--g:rgba(6,199,85,.55)}
+/* 各 App 品牌色按鈕 */
+.links a.b{min-height:62px;font-size:1.05rem;color:#fff;background:var(--bk);border-color:rgba(255,255,255,.22);box-shadow:0 6px 18px var(--g)}
+.links a.b::before{background:radial-gradient(180px circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.32),transparent 70%)}
+.links a.b:hover{border-color:#fff;box-shadow:0 0 28px var(--g),0 10px 30px rgba(0,0,0,.3)}
+.links a.b:active{transform:scale(.97)}
+.links a.b svg{width:22px;height:22px}
+.gh{--bk:linear-gradient(135deg,#24292f,#4a5560);--g:rgba(150,160,175,.4)}
+.ig{--bk:linear-gradient(45deg,#feda75 0%,#fa7e1e 25%,#d62976 52%,#962fbf 75%,#4f5bd5 100%);--g:rgba(214,41,118,.55)}
+.li{--bk:linear-gradient(135deg,#0a66c2,#0e7de0);--g:rgba(10,102,194,.6)}
+.ml{--bk:linear-gradient(135deg,#ea4335,#f06a5e);--g:rgba(234,67,53,.55)}
+@media (hover:none){.glow{display:none}.toggle:hover{transform:none}}
+@media (max-width:480px){body{padding-top:calc(64px + env(safe-area-inset-top,0px))}.avatar-wrap{width:128px;height:128px}.links{gap:16px}.toggle{width:44px;height:44px}}
+footer{margin-top:28px;font-size:.85rem;color:var(--muted)}
+.toggle{position:fixed;top:calc(14px + env(safe-area-inset-top,0px));right:14px;z-index:5;width:42px;height:42px;border-radius:50%;
+  border:1px solid var(--card-b);background:var(--card);color:var(--text);cursor:pointer;font-size:1.1rem;
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:transform .3s}
+.toggle:hover{transform:rotate(180deg) scale(1.1)}
+@media (max-width:480px){h1{font-size:1.7rem}.card{padding:30px 18px 24px}}
+@media (prefers-reduced-motion:reduce){.m2{display:none}*{animation-duration:.01ms!important;animation-iteration-count:1!important}}
+</style>
+</head>
+<body>
+<div class="aurora"><i></i><i></i><i></i></div>
+<canvas id="net"></canvas>
+<div class="glow" id="glow"></div>
+<button class="toggle" id="theme" aria-label="切換深淺色">◐</button>
+
+<div class="container">
+  <div class="card">
+    <div class="avatar-wrap">
+      <svg class="avatar" viewBox="0 0 120 120" role="img" aria-label="Q版貓貓頭像">
+        <defs><linearGradient id="cg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7c5cff"/><stop offset="1" stop-color="#ff5cc8"/></linearGradient></defs>
+        <rect width="120" height="120" fill="url(#cg)"/>
+        <path d="M24 56 L26 18 L54 38 Z" fill="#ee9a45"/><path d="M96 56 L94 18 L66 38 Z" fill="#ee9a45"/>
+        <path d="M30 46 L31 28 L46 38 Z" fill="#ff9ec4"/><path d="M90 46 L89 28 L74 38 Z" fill="#ff9ec4"/>
+        <ellipse cx="60" cy="70" rx="41" ry="35" fill="#f4a853"/>
+        <clipPath id="hc"><ellipse cx="60" cy="70" rx="41" ry="35"/></clipPath>
+        <g clip-path="url(#hc)"><ellipse cx="60" cy="90" rx="23" ry="16" fill="#fff8ee"/><path d="M60 50 Q55 68 50 84 L70 84 Q65 68 60 50 Z" fill="#fff8ee"/><path d="M20 68 h11 M21 76 h9 M100 68 h-11 M99 76 h-9" stroke="#c9722a" stroke-width="2.5" stroke-linecap="round" fill="none"/></g>
+        <path d="M60 37 v8 M51 39 l2 7 M69 39 l-2 7" stroke="#c46a22" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <g class="eyes"><ellipse cx="44" cy="70" rx="7" ry="9" fill="#2a2140"/><ellipse cx="76" cy="70" rx="7" ry="9" fill="#2a2140"/><circle cx="46.5" cy="66.5" r="3" fill="#fff"/><circle cx="78.5" cy="66.5" r="3" fill="#fff"/><circle cx="42" cy="73" r="1.5" fill="#fff"/><circle cx="74" cy="73" r="1.5" fill="#fff"/></g>
+        <ellipse cx="29" cy="82" rx="7" ry="4" fill="#ff7a9c" opacity=".55"/><ellipse cx="91" cy="82" rx="7" ry="4" fill="#ff7a9c" opacity=".55"/>
+        <path d="M56 80 h8 l-4 4 z" fill="#ff7a9c"/>
+        <g class="m1"><path d="M60 84 q-5 6 -10 2 M60 84 q5 6 10 2" stroke="#7a4a3a" stroke-width="2" fill="none" stroke-linecap="round"/></g>
+        <g class="m2"><path d="M60 84 v2" stroke="#7a4a3a" stroke-width="2" stroke-linecap="round"/>
+        <path d="M49 86 Q60 99 71 86 Z" fill="#7a2f3a" stroke="#7a2f3a" stroke-width="2" stroke-linejoin="round"/>
+        <ellipse cx="60" cy="91" rx="4.5" ry="2.6" fill="#ff7a9c"/></g>
+        <path d="M14 74 l14 3 M14 84 l14 -2 M106 74 l-14 3 M106 84 l-14 -2" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".85"/>
+      </svg>
+    </div>
+    <h1>徐駿恩 Ryan</h1>
+    <p class="bio"><span id="type"></span><span class="cur"></span></p>
+
+    <ul class="links">
+      <li><a class="b ln" href="https://line.me/ti/p/_l1HpX1ZTF" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.3 8.7 8.7 0 0 1-3.6-.8L3 21l1.8-4.9A8.2 8.2 0 0 1 4 11.5 8.4 8.4 0 0 1 12.5 3.2 8.4 8.4 0 0 1 21 11.5z"/></svg><span>LINE</span></a></li>
+      <li><a class="b ml" href="mailto:osio102495@gmail.com">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span>Email</span></a></li>
+      <li><a class="b ig" href="https://www.instagram.com/ryan_.95_/" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6"/></svg><span>Instagram</span></a></li>
+      <li><a class="b li" href="https://www.linkedin.com/in/%E6%81%A9-%E5%BE%90-576b103a2/" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg><span>LinkedIn</span></a></li>
+      <li><a class="b gh" href="https://github.com/ryanhsu102495-ops" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg><span>GitHub</span></a></li>
+    </ul>
+    
+  </div>
+</div>
+
+<script>
+// 打字機
+(function(){
+  var lines=["幹片 reels 重度成癮者","資安菜鳥首席","Olivia Rodrigo 跟 Shawn Mendes 音樂好聽","愛看美劇但很懶常囤片"],el=document.getElementById('type'),l=0,i=0,del=false;
+  function tick(){
+    var s=lines[l];
+    el.textContent=s.slice(0,i);
+    if(!del&&i<s.length){i++;setTimeout(tick,110)}
+    else if(!del){del=true;setTimeout(tick,1600)}
+    else if(i>0){i--;setTimeout(tick,50)}
+    else{del=false;l=(l+1)%lines.length;setTimeout(tick,300)}
+  }
+  tick();
+})();
+
+// 粒子網路(跟隨滑鼠)
+(function(){
+  var c=document.getElementById('net'),x=c.getContext('2d'),W,H,P=[],m={x:-999,y:-999},dpr=Math.min(devicePixelRatio||1,2);
+  function size(){W=innerWidth;H=innerHeight;c.width=W*dpr;c.height=H*dpr;c.style.width=W+'px';c.style.height=H+'px';x.setTransform(dpr,0,0,dpr,0,0)}
+  size();addEventListener('resize',size);
+  var mob=matchMedia('(hover:none)').matches,n=mob?Math.min(70,Math.floor(innerWidth*innerHeight/12000)):Math.min(90,Math.floor(innerWidth*innerHeight/14000));
+  for(var k=0;k<n;k++)P.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.5,vy:(Math.random()-.5)*.5});
+  addEventListener('pointermove',function(e){m.x=e.clientX;m.y=e.clientY});
+  addEventListener('pointerleave',function(){m.x=m.y=-999});
+  function col(){return getComputedStyle(document.documentElement).getPropertyValue('--particle').trim()}
+  (function loop(){
+    var rgb=col();x.clearRect(0,0,W,H);
+    P.forEach(function(p,i){
+      var dx=m.x-p.x,dy=m.y-p.y,d=Math.hypot(dx,dy);
+      if(d<160){p.vx+=dx/d*.012;p.vy+=dy/d*.012}
+      p.vx*=.99;p.vy*=.99;p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;
+      x.fillStyle='rgba('+rgb+',.8)';x.beginPath();x.arc(p.x,p.y,1.8,0,6.283);x.fill();
+      for(var j=i+1;j<P.length;j++){
+        var q=P[j],e=Math.hypot(p.x-q.x,p.y-q.y);
+        if(e<120){x.strokeStyle='rgba('+rgb+','+(1-e/120)*.35+')';x.lineWidth=1;x.beginPath();x.moveTo(p.x,p.y);x.lineTo(q.x,q.y);x.stroke()}
+      }
+      if(d<150){x.strokeStyle='rgba('+rgb+','+(1-d/150)*.6+')';x.beginPath();x.moveTo(p.x,p.y);x.lineTo(m.x,m.y);x.stroke()}
+    });
+    requestAnimationFrame(loop);
+  })();
+})();
+
+// 滑鼠光暈
+var glow=document.getElementById('glow');
+addEventListener('pointermove',function(e){glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px'});
+
+// 按鈕 3D 傾斜 + 聚光 + 點擊漣漪
+document.querySelectorAll('.links a').forEach(function(a){
+  a.addEventListener('pointermove',function(e){
+    if(e.pointerType==='touch')return;
+    var r=a.getBoundingClientRect(),px=(e.clientX-r.left)/r.width,py=(e.clientY-r.top)/r.height;
+    a.style.setProperty('--mx',px*100+'%');a.style.setProperty('--my',py*100+'%');
+    a.style.transform='translateY(-3px) rotateX('+((.5-py)*14)+'deg) rotateY('+((px-.5)*14)+'deg)';
+  });
+  a.addEventListener('pointerleave',function(){a.style.transform=''});
+  a.addEventListener('click',function(e){
+    var r=a.getBoundingClientRect(),s=Math.max(r.width,r.height)*2,d=document.createElement('span');
+    d.className='rip';d.style.width=d.style.height=s+'px';
+    d.style.left=(e.clientX-r.left-s/2)+'px';d.style.top=(e.clientY-r.top-s/2)+'px';
+    a.appendChild(d);setTimeout(function(){d.remove()},650);
+  });
+});
+
+// 深淺色切換
+document.getElementById('theme').addEventListener('click',function(){
+  var h=document.documentElement,dark=h.dataset.theme?h.dataset.theme==='dark':!matchMedia('(prefers-color-scheme: light)').matches;
+  h.dataset.theme=dark?'light':'dark';
+});
+</script>
+</body>
+</html>
